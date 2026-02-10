@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vétement - Modern Fashion</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #f5f5f5;
+      --muted: #b5b5b5;
+      --accent: #d4af37;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    nav h1 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 2px;
+      font-size: 22px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav li {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    nav li:hover {
+      color: var(--accent);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      padding: 120px 80px 60px;
+      gap: 40px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 36px;
+    }
+
+    .hero-text button {
+      width: fit-content;
+      padding: 14px 36px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--text);
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .hero-text button:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.8s ease forwards;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 6s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1);
+    }
+
+    /* ---------- COLLECTION ---------- */
+    section.collection {
+      padding: 120px 80px;
+    }
+
+    .collection h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card span {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      background: rgba(0,0,0,0.5);
+      padding: 6px 14px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 60px 80px;
+      border-top: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 120px 40px 60px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Vétement Clothing Store</h1>
+
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Cheap and
+        <br />Stylish Clothing</h2>
+      <p>
+        Lowkirkenuinely made and supported by our GOAT Lebron James
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" alt="If someone is reading the code, fuck you" />
+    </div>
+  </section>
+
+  <section class="collection">
+    <h3>Dawg I give up, i spent way too long making this site</h3>
+    <div class="grid">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" />
+        <span>is ts tuff in MATI Couhurt 2?!?!?!</span>
+      </div>
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" />
+        <span>Our legendary king Lebron</span>
+      </div>
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" />
+        <span>Lebron again cuz we so sigmaaa</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vétement Clothing Store</p>
+    <p>Please Sir Jed, give us 100%, we need this, we're kinda homeless please</p>
+</footer>
+
+</body>
+</html>
