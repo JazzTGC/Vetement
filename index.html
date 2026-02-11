@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vétement - Modern Fashion</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts >:3333 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -217,6 +217,116 @@
         padding: 20px 40px;
       }
     }
+
+    /* ======================================
+   MOBILE / PORTRAIT-ONLY EXPERIENCE
+   ====================================== */
+
+@media (max-width: 600px) and (orientation: portrait) {
+
+  /* ----- NAV ----- */
+  nav {
+    padding: 16px 20px;
+  }
+
+  nav h1 {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  /* ----- HERO ----- */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hero-image img {
+    height: 100%;
+    transform: scale(1);
+  }
+
+  /* Dark gradient overlay */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.3),
+      rgba(0,0,0,0.85)
+    );
+    z-index: 2;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 3;
+    padding: 0 24px 64px;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .hero-text h2 {
+    font-size: 48px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .hero-text button {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  /* ----- COLLECTION ----- */
+  section.collection {
+    padding: 80px 20px;
+  }
+
+  .collection h3 {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    gap: 40px;
+  }
+
+  .card img {
+    height: 520px;
+  }
+
+  .card span {
+    font-size: 16px;
+    padding: 10px 18px;
+    bottom: 32px;
+    left: 20px;
+  }
+
+  /* ----- FOOTER ----- */
+  footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 40px 20px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -228,10 +338,10 @@
 
   <section class="hero">
     <div class="hero-text">
-      <h2>Cheap and
-        <br />Stylish Clothing</h2>
+      <h2>Redefining
+        <br />Modern Fashion</h2>
       <p>
-        Lowkirkenuinely made and supported by our GOAT Lebron James
+        Stylish & Sleek Fashion
       </p>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="text-decoration:none;">
 <button>Shop Now</button>
@@ -239,31 +349,31 @@
     </div>
 
     <div class="hero-image">
-      <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" alt="If someone is reading the code, fuck you" />
+      <img src="Assets/euansoSARAP.jpg" alt="If someone is reading the code, fuck you" />
     </div>
   </section>
 
   <section class="collection">
-    <h3>Dawg I give up, i spent way too long making this site</h3>
+    <h3>Styles</h3>
     <div class="grid">
       <div class="card">
-        <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" />
-        <span>is ts tuff in MATI Couhurt 2?!?!?!</span>
+        <img src="Assets/bomboclat.jpg" />
+        <span>Ang sarap mo pare</span>
       </div>
       <div class="card">
-        <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" />
-        <span>Our legendary king Lebron</span>
+        <img src="Assets/kimono.jpg" />
+        <span>Konichiwa u so tuff twin</span>
       </div>
       <div class="card">
-        <img src="https://i.ytimg.com/vi/NhHb9usKy6Q/maxresdefault.jpg" />
-        <span>Lebron again cuz we so sigmaaa</span>
+        <img src="Assets/mirrorselfienowaying.jpg" />
+        <span>🤤</span>
       </div>
     </div>
   </section>
 
   <footer>
     <p>© 2026 Vétement Clothing Store</p>
-    <p>Please Sir Jed, give us 100%, we need this, we're kinda homeless please</p>
+    <p>Sir Jed, if you're reading this give us 100% for the extra work of making this site plz</p>
 </footer>
 
 </body>
