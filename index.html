@@ -343,9 +343,52 @@
       <p>
         Stylish & Sleek Fashion
       </p>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="text-decoration:none;">
-<button>Shop Now</button>
-</a>
+<button id="shopBtn">Shop Now</button>
+
+<video id="rickroll" hidden>
+  <source src="Assets/rickroll.mp4" type="video/mp4">
+</video>
+
+
+<script>
+  const btn = document.getElementById("shopBtn");
+  const video = document.getElementById("rickroll");
+
+  btn.onclick = async () => {
+    video.hidden = false;
+    video.currentTime = 0;
+    await video.play();
+
+    // Try fullscreen (browser may ignore on some mobile)
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen(); // Safari
+    }
+  };
+
+  function cleanupVideo() {
+    video.pause();
+    video.hidden = true;
+    video.currentTime = 0;
+  }
+
+  // Desktop browsers
+  document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+      cleanupVideo();
+    }
+  });
+
+  // Mobile Safari
+  document.addEventListener("webkitfullscreenchange", () => {
+    if (!document.webkitFullscreenElement) {
+      cleanupVideo();
+    }
+  });
+</script>
+
+
     </div>
 
     <div class="hero-image">
