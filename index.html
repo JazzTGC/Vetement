@@ -7,6 +7,8 @@
 
   <!-- Google Fonts >:3333 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Force browser to fetch video immediately -->
+  <link rel="preload" as="video" href="Assets/Sunshine.mp4" type="video/mp4">
 
 <style>
   :root {
@@ -353,21 +355,31 @@
       </p>
 <button id="shopBtn">Shop Now</button>
 
-<video id="rickroll" hidden>
-  <source src="Assets/Sunshine.mp4" type="video/mp4">
+<video id="sunshine" hidden>
+  <source src="Assets/Sunshine_6x.mp4" type="video/mp4">
 </video>
 
 
 <script>
   const btn = document.getElementById("shopBtn");
-  const video = document.getElementById("rickroll");
+  const video = document.getElementById("sunshine");
+
+  // Force video to begin loading as soon as page loads
+  window.addEventListener("load", () => {
+    video.load();
+  });
 
   btn.onclick = async () => {
-    video.hidden = false;
+    video.style.display = "block";
     video.currentTime = 0;
-    await video.play();
 
-    // Try fullscreen (browser may ignore on some mobile)
+    try {
+      await video.play();
+    } catch (err) {
+      console.log("Autoplay prevented:", err);
+    }
+
+    // Fullscreen
     if (video.requestFullscreen) {
       video.requestFullscreen();
     } else if (video.webkitRequestFullscreen) {
@@ -377,11 +389,11 @@
 
   function cleanupVideo() {
     video.pause();
-    video.hidden = true;
     video.currentTime = 0;
+    video.style.display = "none";
   }
 
-  // Desktop browsers
+  // Desktop
   document.addEventListener("fullscreenchange", () => {
     if (!document.fullscreenElement) {
       cleanupVideo();
@@ -400,24 +412,24 @@
     </div>
 
     <div class="hero-image">
-      <img src="Assets/modelHead.jpg" alt="If someone is reading the code, fuck you" />
+      <img src="Assets/modelHead.jpg"/>
     </div>
   </section>
 
   <section class="collection">
-    <h3>Styles</h3>
+    <h3>Fashion like no other</h3>
     <div class="grid">
       <div class="card">
         <img src="Assets/model1.jpg" />
-        <span>Ang sarap mo pare</span>
+        <span>This so tuff</span>
       </div>
       <div class="card">
         <img src="Assets/model2.jpg" />
-        <span>Konichiwa u so tuff twin</span>
+        <span>Konichwa!</span>
       </div>
       <div class="card">
         <img src="Assets/model3.jpg" />
-        <span>🤤</span>
+        <span>Instagram worthy fits</span>
       </div>
     </div>
   </section>
